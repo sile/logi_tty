@@ -60,7 +60,7 @@ write(_Backend, Location, MsgInfo, Format, Args) ->
                logi_location:get_module(Location),
                logi_location:get_line(Location),
                format_headers(logi_msg_info:get_headers(MsgInfo)),
-               [io_lib:format(Format, Args)]]).
+               [re:replace(io_lib:format(Format, Args), "\\s+", " ", [global])]]).
 
 %%------------------------------------------------------------------------------------------------------------------------
 %% Internal Functions
