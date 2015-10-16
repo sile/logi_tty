@@ -52,12 +52,13 @@ uninstall(Logger) ->
 -spec write(logi_backend:backend(), logi_location:location(), logi_msg_info:info(), io:format(), [term()]) -> any().
 write(_Backend, Location, MsgInfo, Format, Args) ->
     %% TODO: formatterを指定可能にする
-    io:format("~s [~s] ~p ~p ~s:~p [~s] ~s" ++ format_omitted(logi_msg_info:get_omitted_count(MsgInfo)) ++ "\n",
+    io:format("~s [~s] ~p ~p ~s:~s:~p [~s] ~s" ++ format_omitted(logi_msg_info:get_omitted_count(MsgInfo)) ++ "\n",
               [format_timestamp(logi_msg_info:get_timestamp(MsgInfo)),
                logi_msg_info:get_severity(MsgInfo),
                logi_location:get_node(Location),
                logi_location:get_process(Location),
                logi_location:get_module(Location),
+               logi_location:get_function(Location),
                logi_location:get_line(Location),
                format_headers(logi_msg_info:get_headers(MsgInfo)),
                [re:replace(io_lib:format(Format, Args), "\\s+", " ", [global])]]).
