@@ -1,6 +1,8 @@
 logi_tty
 ========
 
+[![Build Status](https://travis-ci.org/sile/logi_tty.svg?branch=master)](https://travis-ci.org/sile/logi_tty)
+
 TTY出力用の[logi](https://github.com/sile/logi)バックエンド
 
 使い方
