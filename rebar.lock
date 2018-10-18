@@ -1,0 +1,4 @@
+[{<<"logi">>,
+  {git,"git://github.com/sile/logi.git",
+       {ref,"186136c7dc164bf4384e311160426af6b6723dfd"}},
+  0}].
