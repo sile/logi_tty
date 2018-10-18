@@ -76,7 +76,7 @@ format_timestamp(Timestamp) ->
 
 -spec format_headers(logi:headers()) -> iodata().
 format_headers(Headers) ->
-    string:join([[atom_to_list(K),"=",to_string(V)] || {K, V} <- Headers], ",").
+    string:join([[to_string(K),"=",to_string(V)] || {K, V} <- Headers], ",").
 
 -spec format_omitted(non_neg_integer()) -> string().
 format_omitted(0) -> "";
